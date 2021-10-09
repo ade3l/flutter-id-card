@@ -6,9 +6,14 @@ void main() {
   ));
 }
 
-class idCard extends StatelessWidget {
+class idCard extends StatefulWidget {
   const idCard({Key? key}) : super(key: key);
 
+  @override
+  State<idCard> createState() => _idCardState();
+}
+
+class _idCardState extends State<idCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,3 +93,5 @@ class idCard extends StatelessWidget {
     );
   }
 }
+
+
