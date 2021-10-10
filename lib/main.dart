@@ -14,6 +14,8 @@ class idCard extends StatefulWidget {
 }
 
 class _idCardState extends State<idCard> {
+  int level=1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,12 +26,19 @@ class _idCardState extends State<idCard> {
         backgroundColor: Colors.grey[550],
         elevation: 0.0,
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        //set state makes the build to re run and update the widget
+        setState(() {level+=1;});
+      },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
+      ),
       body: Padding(
         padding:EdgeInsets.fromLTRB(20.0,40.0,30.0,0.0),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:  [
-              Center(
+              const Center(
                 child: CircleAvatar(
                   backgroundImage: AssetImage('assets/man.png'),
                   radius: 80.0,
@@ -63,7 +72,7 @@ class _idCardState extends State<idCard> {
               ),
               const SizedBox(height: 10.0,),
               Text(
-                'Noob',
+                '$level',
                 style: TextStyle(
                   color: Colors.amberAccent[200],
                   letterSpacing: 2.0,
